@@ -1,0 +1,17 @@
+version: 1.0
+configuration:
+  has_webserver: false
+  readonly_paths:
+    - src/test/*
+  scoring:
+    command: mvn clean test
+    files:
+      - target/surefire-reports/TEST-com.hackerrank.springsecurity.SpringJPATest.xml
+  ide_config:
+    default_open_files:
+      - src/main/java/com/hackerrank/springsecurity/service/CourseService.java
+      - src/test/java/com/hackerrank/springsecurity/SpringJPATest.java
+    project_menu:
+      test: mvn clean test
+      run: mvn spring-boot:run -DskipTests
+

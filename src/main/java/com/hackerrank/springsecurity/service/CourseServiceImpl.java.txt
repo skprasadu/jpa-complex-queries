@@ -1,0 +1,48 @@
+package com.hackerrank.springsecurity.service;
+
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hackerrank.springsecurity.repository.CourseRepository;
+import com.hackerrank.springsecurity.repository.StudentCourseScoreRepository;
+import com.hackerrank.springsecurity.repository.StudentRepository;
+
+@Service
+public class CourseServiceImpl implements CourseService {
+	
+	@Autowired
+	private CourseRepository courseRepository;
+
+	@Autowired
+	private StudentRepository studentRepository;
+	
+	@Autowired
+	private StudentCourseScoreRepository studentCourseScoreRepository;
+
+	@Override
+	public Set<String> getTopThreePopularCourses() {
+		// TODO Auto-generated method stub
+		return courseRepository.findTopThreePopularCourses();
+	}
+
+	@Override
+	public Set<Long> getTopThreeScorersInACourse(String course) {
+		// TODO Auto-generated method stub
+		return studentRepository.findTopThreeScorersInACourse(course);
+	}
+
+	@Override
+	public Set<Long> getHighestScoresInCourses() {
+		// TODO Auto-generated method stub
+		return studentRepository.findHighestScoresInCourses();
+	}
+
+	@Override
+	public Set<Long> getAllStudentsCourseScore() {
+		// TODO Auto-generated method stub
+		return studentCourseScoreRepository.findHighestScoresInCourses();
+	}
+
+}
